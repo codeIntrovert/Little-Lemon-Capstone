@@ -2,7 +2,8 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-export default function Booking() {
+export default function Booking(availableTimes) {
+  //using formik for state management and validation
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -23,6 +24,7 @@ export default function Booking() {
         .required("Phone number is required"),
     }),
     onSubmit: (values) => {
+      alert("Booking successful: " + JSON.stringify(values, null, 2));
       console.log("Form values:", values);
     },
   });
